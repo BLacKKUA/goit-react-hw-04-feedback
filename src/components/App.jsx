@@ -10,24 +10,10 @@ export class App extends React.Component {
     bad: 0,
   };
 
-  addFeedback = e => {
-    switch (e) {
-      case 'good':
-        this.setState(prevState => ({
-          [e]: prevState.good + 1,
-        }));
-        break;
-      case 'neutral':
-        this.setState(prevState => ({
-          [e]: prevState.neutral + 1,
-        }));
-        break;
-      case 'bad':
-        this.setState(prevState => ({
-          [e]: prevState.bad + 1,
-        }));
-        break;
-    }
+  addFeedback = feedback => {
+    this.setState(prevState => ({
+      [feedback]: prevState[feedback] + 1,
+    }));
   };
 
   countTotalFeedback = ({ good, neutral, bad } = this.state) =>
@@ -38,7 +24,19 @@ export class App extends React.Component {
   render() {
     return (
       <>
-        <Controls addFeedback={this.addFeedback} />
+        <Controls
+          addFeedback={this.addFeedback}
+          options={[
+            { title: 'Good', lc: 'good', key: 'good' },
+            {
+              title: 'Neutral',
+              uc: 'OK',
+              lc: 'neutral',
+              key: 'neutral',
+            },
+            { title: 'Bad', uc: 'BAD', lc: 'bad', key: 'bad' },
+          ]}
+        />
         {this.state.good > 0 || this.state.bad > 0 || this.state.neutral > 0 ? (
           <Statistics
             title={'Statistics'}
