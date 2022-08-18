@@ -1,20 +1,18 @@
 const Controls = ({ addFeedback, options }) => {
-  console.log(options);
   return (
     <>
       <p>Please leave feedback</p>
       {options.map(stat => {
-        const { title, lc } = stat;
         return (
           <button
-            key={title}
+            key={stat}
             type="button"
-            name={lc}
+            name={stat}
             onClick={() => {
-              addFeedback(lc);
+              addFeedback(stat);
             }}
           >
-            {title}
+            {stat}
           </button>
         );
       })}

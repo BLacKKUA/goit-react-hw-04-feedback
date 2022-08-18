@@ -26,16 +26,7 @@ export class App extends React.Component {
       <>
         <Controls
           addFeedback={this.addFeedback}
-          options={[
-            { title: 'Good', lc: 'good', key: 'good' },
-            {
-              title: 'Neutral',
-              uc: 'OK',
-              lc: 'neutral',
-              key: 'neutral',
-            },
-            { title: 'Bad', uc: 'BAD', lc: 'bad', key: 'bad' },
-          ]}
+          options={['good', 'neutral', 'bad']}
         />
         {this.state.good > 0 || this.state.bad > 0 || this.state.neutral > 0 ? (
           <Statistics
