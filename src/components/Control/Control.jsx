@@ -1,4 +1,4 @@
-const Controls = ({ addFeedback, options }) => {
+const Controls = ({ onLeaveFeedback, options }) => {
   return (
     <>
       <p>Please leave feedback</p>
@@ -7,10 +7,7 @@ const Controls = ({ addFeedback, options }) => {
           <button
             key={stat}
             type="button"
-            name={stat}
-            onClick={() => {
-              addFeedback(stat);
-            }}
+            onClick={() => onLeaveFeedback(stat)}
           >
             {stat}
           </button>

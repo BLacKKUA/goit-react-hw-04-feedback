@@ -1,6 +1,8 @@
 const Statistics = ({
   title,
-  state: { good, bad, neutral },
+  good,
+  bad,
+  neutral,
   countTotalFeedback,
   countPositiveFeedbackPercentage,
 }) => {
